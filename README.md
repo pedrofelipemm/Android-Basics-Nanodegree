@@ -7,3 +7,4 @@
   - **JustJava**: A simple order app, playing with buttons.
   - **Project1**: A custom fictional business card.
   - **Project2**: A score keeper to keep track of goals and fouls of a soccer game.
+  - **Project3**: A quiz app with general questions.
