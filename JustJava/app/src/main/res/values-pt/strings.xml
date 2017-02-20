@@ -1,0 +1,18 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="chocolate">Chocolate</string>
+    <string name="max_coffee_message">Você não pode solicitar mais do que <xliff:g example="100" id="quantity">%d</xliff:g> café(s)</string>
+    <string name="min_coffee_message">Voçê não pode solicitar menos do que  <xliff:g example="1" id="quantity">%d</xliff:g> café(s)</string>
+    <string name="name">Nome</string>
+    <string name="no_email_client_message">Nenhum cliente de email instalado nesse dispositivo.</string>
+    <string name="order_summary_chocolate">Adicionar chocolate? <xliff:g example="true" id="addChocolate">%b</xliff:g></string>
+    <string name="order_summary_email_subject">Pedido para <xliff:g example="Amy" id="name">%s</xliff:g></string>
+    <string name="order_summary_name">Nome: <xliff:g example="Amy" id="name">%s</xliff:g></string>
+    <string name="order_summary_price">Total: <xliff:g example="$10" id="price">%s</xliff:g></string>
+    <string name="order_summary_quantity">Quantidade: <xliff:g example="2" id="quantity">%d</xliff:g></string>
+    <string name="order_summary_whipped_cream">Adicionar chantily? <xliff:g example="true" id="addWhippedCream">%b</xliff:g></string>
+    <string name="quantity">Quantidade</string>
+    <string name="thank_you">Muito obrigado!</string>
+    <string name="toppings">Coberturas</string>
+    <string name="whipped_cream">Chantily</string>
+    <string name="order">Pedir</string>
+</resources>
