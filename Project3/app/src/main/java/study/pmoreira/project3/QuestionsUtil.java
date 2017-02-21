@@ -1,57 +1,64 @@
 package study.pmoreira.project3;
 
+import android.content.Context;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public abstract class QuestionsUtil {
+public class QuestionsUtil {
 
-    public static Questions fetchQuestions() {
+    private Context context;
 
-        //I'm not going to put it in strings.xml because it should be coming from a web server.. Hope to do it in future lessons
+    public QuestionsUtil(Context context) {
+        this.context = context;
+    }
+
+    public Questions fetchQuestions() {
+
         List<Question> questions = new ArrayList<>();
 
-        String question = "What is the colors of the japanese flag?";
+        String question = context.getString(R.string.question1);
         List<Answer> answers = new ArrayList<>();
-        answers.add(new Answer("White", true));
-        answers.add(new Answer("Black", false));
-        answers.add(new Answer("Orange", false));
-        answers.add(new Answer("Red", true));
+        answers.add(new Answer(context.getString(R.string.question1_answer1), true));
+        answers.add(new Answer(context.getString(R.string.question1_answer2), false));
+        answers.add(new Answer(context.getString(R.string.question1_answer3), false));
+        answers.add(new Answer(context.getString(R.string.question1_answer4), true));
         questions.add(new Question(question, answers));
 
-        question = "Who was the first president of the United States?";
+        question = context.getString(R.string.question2);
         answers = new ArrayList<>();
-        answers.add(new Answer("James Madison", false));
-        answers.add(new Answer("George Washington", true));
-        answers.add(new Answer("Thomas Jefferson", false));
-        answers.add(new Answer("John Adams", false));
+        answers.add(new Answer(context.getString(R.string.question2_answer1), false));
+        answers.add(new Answer(context.getString(R.string.question2_answer2), true));
+        answers.add(new Answer(context.getString(R.string.question2_answer3), false));
+        answers.add(new Answer(context.getString(R.string.question2_answer4), false));
         questions.add(new Question(question, answers));
 
-        question = "What is the colors of the brazilian flag?";
+        question = context.getString(R.string.question3);
         answers = new ArrayList<>();
-        answers.add(new Answer("Blue", true));
-        answers.add(new Answer("Gold", true));
-        answers.add(new Answer("Green", true));
-        answers.add(new Answer("White", true));
+        answers.add(new Answer(context.getString(R.string.question3_answer1), true));
+        answers.add(new Answer(context.getString(R.string.question3_answer2), true));
+        answers.add(new Answer(context.getString(R.string.question3_answer3), true));
+        answers.add(new Answer(context.getString(R.string.question3_answer4), true));
         questions.add(new Question(question, answers));
 
-        question = "When did world war 2 end?";
+        question = context.getString(R.string.question4);
         answers = new ArrayList<>();
-        answers.add(new Answer("1945", true));
-        answers.add(new Answer("1944", false));
-        answers.add(new Answer("1940", false));
-        answers.add(new Answer("1955", false));
+        answers.add(new Answer(context.getString(R.string.question4_answer1), true));
+        answers.add(new Answer(context.getString(R.string.question4_answer2), false));
+        answers.add(new Answer(context.getString(R.string.question4_answer3), false));
+        answers.add(new Answer(context.getString(R.string.question4_answer4), false));
         questions.add(new Question(question, answers));
 
-        question = "When was the first android released?";
+        question = context.getString(R.string.question5);
         answers = new ArrayList<>();
-        answers.add(new Answer("2010", false));
-        answers.add(new Answer("2000", false));
-        answers.add(new Answer("2007", false));
-        answers.add(new Answer("2008", true));
+        answers.add(new Answer(context.getString(R.string.question5_answe1), true));
         questions.add(new Question(question, answers));
 
-        Collections.shuffle(questions);
+        question = context.getString(R.string.question6);
+        answers = new ArrayList<>();
+        answers.add(new Answer(context.getString(R.string.question6_answer1), true));
+        questions.add(new Question(question, answers));
+
         return new Questions(questions);
     }
 }

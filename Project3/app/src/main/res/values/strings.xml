@@ -1,14 +1,36 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Quiz App</string>
     <string name="new_game">new game</string>
     <string name="background_image_content_description">A background image containing a blackboard written \"I love school\" and some pens.</string>
     <string name="default_answer">0</string>
     <string name="submit">submit</string>
-    <string name="ok">OK</string>
-    <string name="name_dialog_title">What`s your name?</string>
-    <string name="name">Name</string>
-    <string name="no_name_message">Provide your name, please.</string>
     <string name="wrong_answer_message">Wrong answer, try again.</string>
     <string name="right_answer_message">Right answer,  keep going!</string>
-    <string name="end_game_message">Finished! Congratulations!</string>
+    <string name="end_game_message">Your final score is: <xliff:g example="50" id="score">%d</xliff:g>. Congratulations!</string>
+    <string name="your_answer">Your answer</string>
+
+    <string name="question1">What is the colors of the japanese flag?</string>
+    <string name="question1_answer1">White</string>
+    <string name="question1_answer2">Black</string>
+    <string name="question1_answer3">Orange</string>
+    <string name="question1_answer4">Red</string>
+    <string name="question2">Who was the first president of the United States?</string>
+    <string name="question2_answer1">James Madison</string>
+    <string name="question2_answer2">George Washington</string>
+    <string name="question2_answer3">Thomas Jefferson</string>
+    <string name="question2_answer4">John Adams</string>
+    <string name="question3">What is the colors of the brazilian flag?</string>
+    <string name="question3_answer1">Blue</string>
+    <string name="question3_answer2">Gold</string>
+    <string name="question3_answer3">Green</string>
+    <string name="question3_answer4">White</string>
+    <string name="question4">When did world war 2 end?</string>
+    <string name="question4_answer1">1945</string>
+    <string name="question4_answer2">1944</string>
+    <string name="question4_answer3">1940</string>
+    <string name="question4_answer4">1955</string>
+    <string name="question5">When was the first android released?</string>
+    <string name="question5_answe1">2008</string>
+    <string name="question6">How to only declare a string called str in Java?</string>
+    <string name="question6_answer1">String str;</string>
 </resources>

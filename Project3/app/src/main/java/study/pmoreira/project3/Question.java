@@ -29,4 +29,8 @@ public class Question {
         }
         return rightAnswer > 1;
     }
+
+    public boolean isTextQuestion() {
+        return answers.size() == 1;
+    }
 }
