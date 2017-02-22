@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="study.pmoreira.project4.activity.MainActivity">
+
+    <TextView
+        style="@style/subtitle_textview"
+        android:text="@string/library_subtitle" />
+
+    <TextView
+        style="@style/explanation_textview"
+        android:text="@string/explanation1" />
+
+    <TextView
+        style="@style/explanation_textview"
+        android:text="@string/explanation2" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/track_list_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/default_margin">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

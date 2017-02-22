@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="default_margin">8dp</dimen>
+    <dimen name="library_list_row_height">80dp</dimen>
+</resources>

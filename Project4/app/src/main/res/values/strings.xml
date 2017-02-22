@@ -1,0 +1,18 @@
+<resources>
+    <string name="library_subtitle">Library screen to display a list of available musics to the user.</string>
+    <string name="details_subtitle">Screen to display details of the artist</string>
+    <string name="now_playing_subtitle">Screen to display the current music been played.</string>
+    <string name="explanation1">It`s making use of butterknife library for view injection</string>
+    <string name="explanation2">It\'s making use of a RecyclerView to display a list o music.</string>
+    <string name="music_initial_length">0:00</string>
+
+    <string name="artist1">Avantasia</string>
+    <string name="arttist1_description">Avantasia is a German supergroup rock opera project created by Tobias Sammet, vocalist of the band Edguy. It has been characterized as a rock opera, as it features the contributions of various vocalists and musicians and it consists of concept albums. The name is a portmanteau of the words \"avalon\" and \"fantasia\" (\"fantasy\") and describes \"a world beyond human imagination\" (a quotation from the booklet).</string>
+    <string name="artist2">Epica</string>
+    <string name="artist2_description">Epica is a Dutch symphonic metal band, founded by guitarist and vocalist Mark Jansen after his departure from After Forever.</string>
+    <string name="artist3">Nightwish</string>
+    <string name="artist3_description">Nightwish is a symphonic metal band from Kitee, Finland. The band was formed in 1996 by lead songwriter and keyboardist Tuomas Holopainen, guitarist Emppu Vuorinen, and lead singer Tarja Turunen. The band soon picked up drummer Jukka Nevalainen, and then bassist Sami Vänskä after the release of their debut album, Angels Fall First (1997). In 2002, Vänskä was replaced by Marco Hietala, who also took over the male vocalist role previously filled by Holopainen or guest singers.</string>
+    <string name="now_playing_activity_label">Now Playing</string>
+    <string name="detail_activity_label">Artist Detail</string>
+    <string name="main_activity_label">Music Library</string>
+</resources>
