@@ -15,4 +15,6 @@
     <string name="now_playing_activity_label">Now Playing</string>
     <string name="detail_activity_label">Artist Detail</string>
     <string name="main_activity_label">Music Library</string>
+    <string name="explanation3">It\'s going to use MediaStore class to read available media on both internal and external storage.</string>
+    <string name="explanation4">It\'s going to use MediaPlayer class to start and pause the music.</string>
 </resources>

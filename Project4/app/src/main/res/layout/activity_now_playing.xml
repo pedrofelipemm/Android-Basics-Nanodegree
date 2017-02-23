@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="4"
         android:orientation="vertical">
 
         <TextView
@@ -23,6 +23,11 @@
             android:layout_marginBottom="@dimen/default_margin"
             android:text="@string/explanation1" />
 
+        <TextView
+            style="@style/explanation_textview"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:text="@string/explanation4" />
+
     </LinearLayout>
 
 
@@ -31,13 +36,13 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_margin="@dimen/default_margin"
-        android:layout_weight="2"
+        android:layout_weight="3.5"
         android:scaleType="centerCrop" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2.5"
         android:orientation="vertical">
 
         <LinearLayout
