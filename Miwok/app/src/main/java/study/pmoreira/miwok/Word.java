@@ -6,6 +6,7 @@ public class Word {
 
     private String defaultTransaltion;
     private String miwokTransaltion;
+    private int audioResorceId;
     private int imageResourceId = NO_IMAGE_PROVIDED;
 
     public Word(String defaultTransaltion, String miwokTransaltion) {
@@ -13,8 +14,13 @@ public class Word {
         this.miwokTransaltion = miwokTransaltion;
     }
 
-    public Word(String defaultTransaltion, String miwokTransaltion, int imageResourceId) {
+    public Word(String defaultTransaltion, String miwokTransaltion, int audioResorceId) {
         this(defaultTransaltion, miwokTransaltion);
+        this.audioResorceId = audioResorceId;
+    }
+
+    public Word(String defaultTransaltion, String miwokTransaltion, int imageResourceId, int audioResorceId) {
+        this(defaultTransaltion, miwokTransaltion, audioResorceId);
         this.imageResourceId = imageResourceId;
     }
 
@@ -40,6 +46,14 @@ public class Word {
 
     public void setImageResourceId(int imageResourceId) {
         this.imageResourceId = imageResourceId;
+    }
+
+    public int getAudioResorceId() {
+        return audioResorceId;
+    }
+
+    public void setAudioResorceId(int audioResorceId) {
+        this.audioResorceId = audioResorceId;
     }
 
     public boolean hasImage() {
