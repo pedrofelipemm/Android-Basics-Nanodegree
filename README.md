@@ -10,3 +10,4 @@
   - **Project2**: A score keeper to keep track of goals and fouls of a soccer game.
   - **Project3**: A quiz app with general questions.
   - **Project4**: A music structure app, demonstrating the usage of explicity intents, recyclerView and butterknife library.
+  - **Project5**: A tour guide app, making use of viewPager to display points of interest.

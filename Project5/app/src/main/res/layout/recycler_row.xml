@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#F0F0F0">
+
+    <ImageView
+        android:id="@+id/picture_imageview"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/default_margin"
+        android:visibility="gone"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_marginLeft="16dp"
+        android:layout_toEndOf="@id/picture_imageview"
+        android:layout_toRightOf="@id/picture_imageview"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_textview"
+            style="@style/place_name"
+            tools:text="Lorem ipsum "/>
+
+        <TextView
+            android:id="@+id/description_textview"
+            style="@style/place_description"
+            tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

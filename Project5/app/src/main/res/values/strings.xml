@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Tour guide app</string>
+    <string name="category_hotels">Hotels</string>
+    <string name="category_parks">Parks</string>
+    <string name="category_food">Food</string>
+    <string name="category_museums">Museums</string>
+
+    <string name="park1_name">Parque do Taquaral</string>
+    <string name="park1_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris aliquet est.</string>
+    <string name="park2_name">Pedreira do Chapadão</string>
+    <string name="park2_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris aliquet est.</string>
+    <string name="park3_name">Bosque dos Jequitibás</string>
+    <string name="park3_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris aliquet est.</string>
+    <string name="park4_name">Bosque dos Italianos</string>
+    <string name="park4_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris aliquet est.</string>
+    <string name="park5_name">Bosque dos Guarantãs</string>
+    <string name="park5_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris aliquet est.</string>
+    <string name="park6_name">Mata Santa Genebra</string>
+    <string name="park6_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris aliquet est.</string>
+
+    <string name="hotel1_name">Royal Palm Plaza Resort</string>
+    <string name="hotel1_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="hotel2_name">Meliá Campinas</string>
+    <string name="hotel2_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="hotel3_name">Comfort Suítes Campinas</string>
+    <string name="hotel3_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="hotel4_name">Royal Palm Plaza Resort</string>
+    <string name="hotel4_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="hotel5_name">Royal Palm Tower</string>
+    <string name="hotel5_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="hotel6_name">Hotel Vila Rica</string>
+    <string name="hotel6_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+
+    <string name="restaurant1_name">Théo Medeiros</string>
+    <string name="restaurant1_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="restaurant2_name">Olivetto</string>
+    <string name="restaurant2_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="restaurant3_name">Bellini</string>
+    <string name="restaurant3_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="restaurant4_name">Il Panittiere</string>
+    <string name="restaurant4_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="restaurant5_name">Subway</string>
+    <string name="restaurant5_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="restaurant6_name">Tomyam SouthEast Asia</string>
+    <string name="restaurant6_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+
+    <string name="museum1_name">Observatório de Capricórnio (Municipal)</string>
+    <string name="museum1_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="museum2_name">Museu da Imagem e do Som Campinas</string>
+    <string name="museum2_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="museum3_name">Museu da Velha Guarda)</string>
+    <string name="museum3_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="museum4_name">Planetário Municipal</string>
+    <string name="museum4_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="museum5_name">Museu de História Natural </string>
+    <string name="museum5_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="museum6_name">Observatório Municipal de Campinas - Jean Nicolini</string>
+    <string name="museum6_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+
+</resources>
