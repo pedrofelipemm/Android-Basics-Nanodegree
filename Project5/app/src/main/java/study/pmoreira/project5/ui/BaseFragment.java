@@ -10,16 +10,21 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import study.pmoreira.project5.R;
 import study.pmoreira.project5.entity.Place;
 
 public abstract class BaseFragment extends Fragment {
 
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recycler_view, container, false);
+        ButterKnife.bind(this, view);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new CustomRecyclerViewAdapter(getContext(), fetchPlaces()));
 

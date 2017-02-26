@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import study.pmoreira.project5.R;
 import study.pmoreira.project5.entity.Hotel;
 import study.pmoreira.project5.entity.Place;
@@ -52,16 +54,18 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.picture_imageview)
         ImageView pictureImageview;
+
+        @BindView(R.id.name_textview)
         TextView nameTextView;
+
+        @BindView(R.id.description_textview)
         TextView descriptionTextView;
 
         ViewHolder(View itemView) {
             super(itemView);
-
-            pictureImageview = (ImageView) itemView.findViewById(R.id.picture_imageview);
-            nameTextView = (TextView) itemView.findViewById(R.id.name_textview);
-            descriptionTextView = (TextView) itemView.findViewById(R.id.description_textview);
+            ButterKnife.bind(this, itemView);
         }
     }
 }
