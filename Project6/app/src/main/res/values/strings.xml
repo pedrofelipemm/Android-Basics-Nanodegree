@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Book Searcher</string>
+    <string name="book_search_hint">Book name</string>
+    <string name="search">Search</string>
+    <string name="no_internet_connection">No internet connection.</string>
+    <string name="no_book">No book found. \nTry something like \"android\".</string>
+</resources>
