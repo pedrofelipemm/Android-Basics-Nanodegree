@@ -1,6 +1,8 @@
 package study.pmoreira.pets.ui.editor;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +20,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import study.pmoreira.pets.R;
 import study.pmoreira.pets.data.PetContract.PetEntry;
-import study.pmoreira.pets.data.PetDbHelper;
 import study.pmoreira.pets.ui.catalog.CatalogActivity;
 
 public class EditorActivity extends AppCompatActivity {
@@ -63,7 +64,7 @@ public class EditorActivity extends AppCompatActivity {
                     } else if (selection.equals(getString(R.string.gender_female))) {
                         mGender = PetEntry.GENDER_FEMALE;
                     } else {
-                        mGender = PetEntry.GENDER_UNKNOW;
+                        mGender = PetEntry.GENDER_UNKNOWN;
                     }
                 }
             }
@@ -85,8 +86,12 @@ public class EditorActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                savePet();
-                startActivity(new Intent(this, CatalogActivity.class));
+                try {
+                    savePet();
+                    startActivity(new Intent(this, CatalogActivity.class));
+                } catch (IllegalArgumentException e) {
+                    Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
                 return true;
             case R.id.action_delete:
                 return true;
@@ -98,16 +103,22 @@ public class EditorActivity extends AppCompatActivity {
     }
 
     private void savePet() {
-        long rowId = new PetDbHelper(this).insert(
-                mNameEditText.getText().toString().trim(),
-                mBreedEditText.getText().toString().trim(),
-                mGender,
-                Integer.parseInt(mWeightEditText.getText().toString().trim()));
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PetEntry.COLUMN_PET_NAME, mNameEditText.getText().toString().trim());
+        contentValues.put(PetEntry.COLUMN_PET_BREED, mBreedEditText.getText().toString().trim());
+        contentValues.put(PetEntry.COLUMN_PET_GENDER, mGender);
 
-        if (rowId == -1) {
-            Toast.makeText(this, "Error while saving pet", Toast.LENGTH_SHORT).show();
+        String weightString = mWeightEditText.getText().toString().trim();
+        if (!TextUtils.isEmpty(weightString)) {
+            contentValues.put(PetEntry.COLUMN_PET_WEIGHT, Integer.parseInt(weightString));
+        }
+
+        Uri uri = getContentResolver().insert(PetEntry.CONTENT_URI, contentValues);
+
+        if (uri == null) {
+            Toast.makeText(this, getString(R.string.editor_insert_pet_failed), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Pet saved - row id: " + rowId, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.editor_insert_pet_successful), Toast.LENGTH_SHORT).show();
         }
     }
 }
