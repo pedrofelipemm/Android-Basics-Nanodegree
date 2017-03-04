@@ -1,0 +1,54 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="product_textview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="product_title_textview" parent="product_textview">
+        <item name="android:layout_margin">@dimen/default_margin</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">@color/productTitle</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="product_features_textview" parent="product_textview">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textColor">@color/productFeatures</item>
+    </style>
+
+    <style name="product_features_label_textview" parent="product_features_textview">
+        <item name="android:layout_marginRight">@dimen/default_margin</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textColor">@color/productFeatures</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="CategoryStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+    </style>
+
+    <style name="EditorFieldStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+    </style>
+
+</resources>

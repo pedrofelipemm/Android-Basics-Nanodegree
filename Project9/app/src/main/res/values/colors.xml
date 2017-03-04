@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#795548</color>
+    <color name="colorPrimaryDark">#5D4037</color>
+    <color name="colorAccent">#FF5252</color>
+
+    <color name="productTitle">@color/colorAccent</color>
+    <color name="productFeatureslabel">@color/colorPrimary</color>
+    <color name="productFeatures">@color/colorPrimaryDark</color>
+</resources>
