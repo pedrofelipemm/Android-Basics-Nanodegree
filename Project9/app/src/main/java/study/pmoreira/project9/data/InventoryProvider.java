@@ -146,6 +146,19 @@ public class InventoryProvider extends ContentProvider {
             return 0;
         }
 
+        validateUpdate(values);
+
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        int rowsUpdated = db.update(ItemEntry.TABLE_NAME, values, selection, selectionArgs);
+        if (rowsUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return rowsUpdated;
+    }
+
+    private void validateUpdate(ContentValues values) {
         if (values.containsKey(ItemEntry.COLUMN_ITEM_NAME)) {
             String name = values.getAsString(ItemEntry.COLUMN_ITEM_NAME);
             if (TextUtils.isEmpty(name)) {
@@ -185,15 +198,6 @@ public class InventoryProvider extends ContentProvider {
                         getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_IMAGE));
             }
         }
-
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-
-        int rowsUpdated = db.update(ItemEntry.TABLE_NAME, values, selection, selectionArgs);
-        if (rowsUpdated != 0) {
-            getContext().getContentResolver().notifyChange(uri, null);
-        }
-
-        return rowsUpdated;
     }
 
     @Override
