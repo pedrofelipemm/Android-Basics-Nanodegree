@@ -56,6 +56,7 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
 
     private static final int EXISTING_ITEM_LOADER = 2;
 
+    private static final int MAXIMUM_IMAGE_DIMENS = 1000;
     private static final int MAXIMUM_IMAGE_SIZE_MEGABYTE = 1;
     private static final int MAXIMUM_IMAGE_SIZE_BYTE = MAXIMUM_IMAGE_SIZE_MEGABYTE * 1024 * 1024;
 
@@ -214,7 +215,7 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
 
             Bitmap bitmap = BitmapFactory.decodeFile(imgDecodableString);
             if (ImageUtils.getUncompressedSize(bitmap) > MAXIMUM_IMAGE_SIZE_BYTE) {
-                bitmap = ImageUtils.scale(bitmap, 1000, true);
+                bitmap = ImageUtils.scale(bitmap, MAXIMUM_IMAGE_DIMENS, true);
             }
             mProductImageView.setImageBitmap(bitmap);
 
