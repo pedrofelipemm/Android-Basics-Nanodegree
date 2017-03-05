@@ -52,7 +52,6 @@
     <string name="update_item_failed">Error while updating item</string>
 
     <string name="order_product_button">order product</string>
-    <string name="image_too_large">Image too large, please pick another one</string>
 
     <string name="order_email_subject">Order for: <xliff:g id="productName">%s</xliff:g></string>
     <string name="order_email_message">
@@ -61,5 +60,8 @@
         Supplier: <xliff:g id="supplier">%s</xliff:g>\n
         Quantity: <xliff:g id="quantity">%s</xliff:g>
     </string>
+
+    <string name="sell_item">Sell item</string>
+    <string name="sold_out">Sold out</string>
 
 </resources>

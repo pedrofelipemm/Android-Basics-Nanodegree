@@ -20,12 +20,12 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -80,9 +80,6 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
     @BindView(R.id.product_imageview)
     ImageView mProductImageView;
 
-    @BindView(R.id.order_button)
-    Button mOrderButton;
-
     private Uri mCurrentItemUri;
 
     private Bundle mSavedInstanceState = new Bundle();
@@ -133,6 +130,8 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
                 restoreSavedState();
             }
         }
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
     @Override
@@ -160,28 +159,6 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
                 if (requestPermissionIfNeeded("android.permission.READ_EXTERNAL_STORAGE")) {
                     startPickImage();
                 }
-            }
-        });
-
-        mOrderButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String productName = mProductNameEditText.getText().toString();
-                String msg = getString(R.string.order_email_message,
-                        productName,
-                        getString(R.string.default_currency_symbol),
-                        mProductPriceEditText.getText(),
-                        getString(R.string.default_currency),
-                        mSupplierNameEditText.getText(),
-                        mProductQuantityTextView.getText());
-
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:"));
-                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_email_subject, productName));
-                intent.putExtra(Intent.EXTRA_TEXT, msg);
-
-                startActivity(intent);
             }
         });
     }
@@ -237,10 +214,9 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
 
             Bitmap bitmap = BitmapFactory.decodeFile(imgDecodableString);
             if (ImageUtils.getUncompressedSize(bitmap) > MAXIMUM_IMAGE_SIZE_BYTE) {
-                Toast.makeText(this, R.string.image_too_large, Toast.LENGTH_SHORT).show();
-            } else {
-                mProductImageView.setImageBitmap(bitmap);
+                bitmap = ImageUtils.scale(bitmap, 1000, true);
             }
+            mProductImageView.setImageBitmap(bitmap);
 
         } else {
             Toast.makeText(this, R.string.pick_an_image, Toast.LENGTH_SHORT).show();
@@ -293,13 +269,7 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
                         finish();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (dialog != null) {
-                            dialog.dismiss();
-                        }
-                    }
-                })
+                .setNegativeButton(R.string.cancel, null)
                 .create()
                 .show();
     }
@@ -322,18 +292,17 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
         String price = mProductPriceEditText.getText().toString().trim();
         Bitmap bitmap = ((BitmapDrawable) mProductImageView.getDrawable()).getBitmap();
 
-        if (!isEditing() &&
-                TextUtils.isEmpty(name) && TextUtils.isEmpty(supplier) &&
-                TextUtils.isEmpty(quantity) && TextUtils.isEmpty(price)) {
-            return;
-        }
-
         ContentValues values = new ContentValues();
         values.put(ItemEntry.COLUMN_ITEM_NAME, name);
         values.put(ItemEntry.COLUMN_ITEM_SUPPLIER, supplier);
         values.put(ItemEntry.COLUMN_ITEM_PRICE, price);
         values.put(ItemEntry.COLUMN_ITEM_QUANTITY, quantity);
-        values.put(ItemEntry.COLUMN_ITEM_IMAGE, ImageUtils.getBytes(bitmap));
+
+        if (bitmap.sameAs(BitmapFactory.decodeResource(getResources(), R.drawable.default_product))) {
+            values.put(ItemEntry.COLUMN_ITEM_IMAGE, new byte[0]);
+        } else {
+            values.put(ItemEntry.COLUMN_ITEM_IMAGE, ImageUtils.getBytes(bitmap));
+        }
 
         if (isEditing()) {
             int rowsAffected = getContentResolver().update(mCurrentItemUri, values, null, null);
@@ -413,5 +382,23 @@ public class ProductActivity extends AppCompatActivity implements LoaderManager.
         mProductPriceEditText.setText("");
         mProductQuantityTextView.setText("");
         mProductImageView.setImageResource(R.drawable.default_product);
+    }
+
+    public void orderProduct(View view) {
+        String productName = mProductNameEditText.getText().toString();
+        String msg = getString(R.string.order_email_message,
+                productName,
+                getString(R.string.default_currency_symbol),
+                mProductPriceEditText.getText(),
+                getString(R.string.default_currency),
+                mSupplierNameEditText.getText(),
+                mProductQuantityTextView.getText());
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_email_subject, productName));
+        intent.putExtra(Intent.EXTRA_TEXT, msg);
+
+        startActivity(intent);
     }
 }

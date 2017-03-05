@@ -21,7 +21,8 @@
         <ImageView
             android:id="@+id/product_imageview"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:contentDescription="@string/product_image_content_description"
             android:scaleType="centerCrop"
@@ -90,6 +91,11 @@
 
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/sell_button"
+                style="@style/CustomButton"
+                android:text="@string/sell_item"/>
 
         </LinearLayout>
 

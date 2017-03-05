@@ -2,7 +2,6 @@ package study.pmoreira.project9.ui.main;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
@@ -16,8 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 
@@ -58,14 +55,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private void setUpViews() {
         mProductListView.setAdapter(mCursorAdapter);
         mProductListView.setEmptyView(findViewById(R.id.empty_view));
-        mProductListView.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, ProductActivity.class);
-                intent.setData(ContentUris.withAppendedId(ItemEntry.CONTENT_URI, id));
-                startActivity(intent);
-            }
-        });
 
         mAddProductButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -129,13 +118,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         deleteAll();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (dialog != null) {
-                            dialog.dismiss();
-                        }
-                    }
-                })
+                .setNegativeButton(R.string.cancel, null)
                 .create()
                 .show();
     }
@@ -162,4 +145,5 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<Cursor> loader) {
         mCursorAdapter.swapCursor(null);
     }
+
 }

@@ -17,7 +17,7 @@ import study.pmoreira.project9.data.InventoryContract.ItemEntry;
 @SuppressWarnings("ConstantConditions")
 public class InventoryProvider extends ContentProvider {
 
-    public static final String TAG = InventoryProvider.class.getSimpleName();
+    private static final String TAG = InventoryProvider.class.getSimpleName();
 
     private static final int ITEMS = 100;
     private static final int ITEM_ID = 101;
@@ -72,7 +72,7 @@ public class InventoryProvider extends ContentProvider {
                 return insertItem(uri, contentValues);
             default:
                 throw new IllegalArgumentException(
-                        getContext().getString(R.string.error_inventory_provider_operation_not_supported, "Insert",  uri));
+                        getContext().getString(R.string.error_inventory_provider_operation_not_supported, "Insert", uri));
         }
     }
 
@@ -100,22 +100,28 @@ public class InventoryProvider extends ContentProvider {
                     getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_NAME));
         }
 
-        String supplier = values.getAsString(ItemEntry.COLUMN_ITEM_SUPPLIER);
-        if (TextUtils.isEmpty(supplier.trim())) {
-            throw new IllegalArgumentException(
-                    getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_SUPPLIER));
-        }
-
         Double price = values.getAsDouble(ItemEntry.COLUMN_ITEM_PRICE);
-        if (price != null && price < 0) {
+        if (price == null || price < 0) {
             throw new IllegalArgumentException(
                     getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_PRICE));
         }
 
         Integer quantity = values.getAsInteger(ItemEntry.COLUMN_ITEM_QUANTITY);
-        if (quantity != null && quantity < 0) {
+        if (quantity == null || quantity < 0) {
             throw new IllegalArgumentException(
                     getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_QUANTITY));
+        }
+
+        byte[] image = values.getAsByteArray(ItemEntry.COLUMN_ITEM_IMAGE);
+        if (image == null || image.length < 1) {
+            throw new IllegalArgumentException(
+                    getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_IMAGE));
+        }
+
+        String supplier = values.getAsString(ItemEntry.COLUMN_ITEM_SUPPLIER);
+        if (TextUtils.isEmpty(supplier.trim())) {
+            throw new IllegalArgumentException(
+                    getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_SUPPLIER));
         }
     }
 
@@ -131,7 +137,7 @@ public class InventoryProvider extends ContentProvider {
                 return updateItem(uri, contentValues, selection, selectionArgs);
             default:
                 throw new IllegalArgumentException(
-                        getContext().getString(R.string.error_inventory_provider_operation_not_supported, "Update",  uri));
+                        getContext().getString(R.string.error_inventory_provider_operation_not_supported, "Update", uri));
         }
     }
 
@@ -169,6 +175,14 @@ public class InventoryProvider extends ContentProvider {
             if (quantity == null || quantity < 0) {
                 throw new IllegalArgumentException(
                         getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_QUANTITY));
+            }
+        }
+
+        if (values.containsKey(ItemEntry.COLUMN_ITEM_IMAGE)) {
+            byte[] image = values.getAsByteArray(ItemEntry.COLUMN_ITEM_IMAGE);
+            if (image == null || image.length < 1) {
+                throw new IllegalArgumentException(
+                        getContext().getString(R.string.field_required, ItemEntry.COLUMN_ITEM_IMAGE));
             }
         }
 
